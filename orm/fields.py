@@ -101,7 +101,7 @@ class ForeignKey(ModelField, typesystem.Field):
         return value.pk
 
     def get_constraints(self):
-        fk_string = self.to.__tablename__ + "." + self.to.__pkname__
+        fk_string = f"{self.to.__tablename__}.{self.to.__pkname__}"
         return [sqlalchemy.schema.ForeignKey(fk_string)]
 
     def get_column_type(self):
